@@ -18,6 +18,7 @@ function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
       if(userAuth){
@@ -26,12 +27,12 @@ function App() {
           email : userAuth.email,
         }));
       }else{
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
