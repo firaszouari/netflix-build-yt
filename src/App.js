@@ -18,6 +18,7 @@ function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  console.log(user)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
